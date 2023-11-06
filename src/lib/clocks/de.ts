@@ -1,6 +1,10 @@
 import type { Clock, Words } from './types';
 
-export const de: () => Clock = () => ({
+type ClockOptions = {
+	debug?: boolean;
+};
+
+export const de: (options: ClockOptions) => Clock = ({ debug }) => ({
 	letterGrid: [
 		[
 			['E', 'it'],
@@ -194,7 +198,7 @@ export const de: () => Clock = () => ({
 			.filter((w) => !!activeWords[w])
 			.join(' ');
 
-		console.log(sentence, { hours, minutes, time });
+		debug && console.log(sentence, { hours, minutes, time });
 		return activeWords as Record<Words, boolean>;
 	},
 });
