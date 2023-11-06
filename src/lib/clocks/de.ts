@@ -4,7 +4,7 @@ type ClockOptions = {
 	debug?: boolean;
 };
 
-export const de: (options: ClockOptions) => Clock = ({ debug }) => ({
+export const de: (options?: ClockOptions) => Clock = ({ debug } = { debug: false }) => ({
 	letterGrid: [
 		[
 			['E', 'it'],
